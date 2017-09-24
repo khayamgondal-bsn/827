@@ -11,10 +11,12 @@ void push(const std::string&);
 void popnprint();
 
 %}
-letter      [a-zA-Z]
+
 blank       [ ]
 
+
 %%
+
 {blank}      { push(" ");            }
 a            { push("\u0250");       }
 b            { push("\u0071");       }
@@ -91,16 +93,17 @@ Z            { push("\u005A");       }
 _            { push("\u203E");       }
 &            { push("\u214B");       }
 
-\n	  	     { popnprint();	  		 }
+\n	     { popnprint();}
 .            { }
 %%
 int yywrap() {
-	yylex_destroy(); 
+	yylex_destroy();
 	return 1; 
 }
 
 void push(const std::string& ch) {
 	st.push(ch);
+
 }
 void popnprint() {
 	while(!st.empty()) {

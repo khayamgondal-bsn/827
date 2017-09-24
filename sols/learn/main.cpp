@@ -3,6 +3,6 @@ int yylex();
 
 int main() {
   yylex();
-  std::cout << std::endl<< "Translation complete" << std::endl;
+  std::cout << "Translation complete" << std::endl;
   return 0;
 }
